@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+dvc = "*"
+jupyterlab = "*"
+pandas = "*"
+numexpr = "*"
+bottleneck = "*"
+
+[dev-packages]
+black = "*"
+pylint = "*"
+isort = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true

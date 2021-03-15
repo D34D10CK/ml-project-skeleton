@@ -1,0 +1,4 @@
+[cache]
+    dir = {{cookiecutter.dvc_cache_folder}}
+    type = symlink
+    shared = group

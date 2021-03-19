@@ -1,0 +1,18 @@
+stages:
+  preprocess:
+    cmd: python -m {{ cookiecutter.package_name }}.pipeline.preprocess.preprocessing
+    deps:
+      - {{ cookiecutter.package_name }}/pipeline/preprocess
+    outs:
+      - data/preprocessed
+
+  train:
+    cmd: python -m {{ cookiecutter.package_name }}.pipeline.train.training
+    deps:
+      - data/preprocessed
+      - {{ cookiecutter.package_name }}/pipeline/train
+
+  evaluate:
+    cmd: python -m {{ cookiecutter.package_name }}.pipeline.evaluate.evaluation
+    deps:
+      - {{ cookiecutter.package_name }}/pipeline/evaluate

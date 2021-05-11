@@ -2,7 +2,10 @@ stages:
   preprocess:
     cmd: python -m {{ cookiecutter.package_name }}.pipeline.preprocess.preprocessing
     deps:
+      - data/raw
       - {{ cookiecutter.package_name }}/pipeline/preprocess
+    params:
+      - preprocess
     outs:
       - data/preprocessed
 
@@ -11,8 +14,12 @@ stages:
     deps:
       - data/preprocessed
       - {{ cookiecutter.package_name }}/pipeline/train
+    params:
+      - train
 
   evaluate:
     cmd: python -m {{ cookiecutter.package_name }}.pipeline.evaluate.evaluation
     deps:
       - {{ cookiecutter.package_name }}/pipeline/evaluate
+    params:
+      - evaluate

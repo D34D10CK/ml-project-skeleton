@@ -16,6 +16,7 @@ too-few-public-methods,
 
 [tool.pylint.basic]
 variable-rgx = "^[a-z][a-z0-9_]*$"
+argument-rgx = "^[a-z][a-z0-9_]*$"
 
 [tool.pylint.format]
 max-line-length = "120"

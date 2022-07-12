@@ -12,9 +12,10 @@ bottleneck = "*"
 
 [dev-packages]
 black = "*"
-pylint = "*"
 isort = "*"
 pre-commit = "*"
+pydocstyle = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.8"

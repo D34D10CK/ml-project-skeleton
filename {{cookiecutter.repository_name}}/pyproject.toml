@@ -20,3 +20,7 @@ argument-rgx = "^[a-z][a-z0-9_]*$"
 
 [tool.pylint.format]
 max-line-length = "120"
+
+[tool.pydocstyle]
+add-ignore = "D107, D104, D103"
+convention = "google"

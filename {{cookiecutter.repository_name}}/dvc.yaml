@@ -4,8 +4,6 @@ stages:
     deps:
       - data/raw
       - {{ cookiecutter.package_name }}/pipeline/preprocess
-    params:
-      - preprocess
     outs:
       - data/preprocessed
 
@@ -15,11 +13,10 @@ stages:
       - data/preprocessed
       - {{ cookiecutter.package_name }}/pipeline/train
     params:
-      - train
+      - params.py:
+          - SEED
 
   evaluate:
     cmd: python -m {{ cookiecutter.package_name }}.pipeline.evaluate.evaluation
     deps:
       - {{ cookiecutter.package_name }}/pipeline/evaluate
-    params:
-      - evaluate

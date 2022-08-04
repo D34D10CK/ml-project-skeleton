@@ -31,3 +31,6 @@ jobs:
       - name: Check doc style with pydocstyle
         run: |
           pydocstyle {{ cookiecutter.package_name }}
+      - name: Check that all functions are type annotated
+        run: |
+          ! mypy {{ cookiecutter.package_name }} --disallow-untyped-defs --disallow-incomplete-defs | grep "Function is missing" || false

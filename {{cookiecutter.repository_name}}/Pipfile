@@ -34,4 +34,4 @@ pylint = "*"
 mypy = "*"
 
 [requires]
-python_version = "3.10"
+python_version = "{{ cookiecutter.python_version }}"

@@ -1,9 +1,14 @@
 """Module for model evalutation."""
 
+from pathlib import Path
 
-def main() -> None:
+import typer
+
+
+def main(model_file: Path = typer.Option(...)) -> None:
     """Main function, print hello message."""
-    print("hello from evaluation")
+    print("Reading message from training:")
+    print(model_file.read_text())
 
 
 if __name__ == "__main__":

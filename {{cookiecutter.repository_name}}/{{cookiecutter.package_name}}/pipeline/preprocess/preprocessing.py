@@ -1,10 +1,15 @@
 """Module for data preprocessing."""
 
+from pathlib import Path
 
-def main() -> None:
+import typer
+
+
+def main(output_file: Path = typer.Option(...)) -> None:
     """Main function, print hello message."""
-    print("hello from preprocessing")
+    output_file.parent.mkdir(exist_ok=True, parents=True)
+    output_file.write_text("Hello from preprocessing!")
 
 
 if __name__ == "__main__":
-    main()
+    typer.run(main)

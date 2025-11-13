@@ -1,19 +1,19 @@
 stages:
   preprocess:
-    cmd: python -m {{ cookiecutter.package_name }}.pipeline.preprocess.preprocessing
+    cmd: python -m src.pipeline.preprocess.preprocessing
       --output-file "data/preprocessed/preprocessed.txt"
     deps:
-      - {{ cookiecutter.package_name }}/pipeline/preprocess
+      - src/pipeline/preprocess
     outs:
       - data/preprocessed
 
   train:
-    cmd: python -m {{ cookiecutter.package_name }}.pipeline.train.training
+    cmd: python -m src.pipeline.train.training
       --preprocessed-file "data/preprocessed/preprocessed.txt"
       --output-file "data/models/model.txt"
     deps:
       - data/preprocessed
-      - {{ cookiecutter.package_name }}/pipeline/train
+      - src/pipeline/train
     outs:
       - data/models
     params:
@@ -21,8 +21,8 @@ stages:
           - SEED
 
   evaluate:
-    cmd: python -m {{ cookiecutter.package_name }}.pipeline.evaluate.evaluation
+    cmd: python -m src.pipeline.evaluate.evaluation
       --model-file "data/models/model.txt"
     deps:
       - data/models
-      - {{ cookiecutter.package_name }}/pipeline/evaluate
+      - src/pipeline/evaluate

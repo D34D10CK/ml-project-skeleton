@@ -1,0 +1,40 @@
+[project]
+name = "ml-project-skeleton"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [{ "name" = "Your Name", "email" = "your.email@example.com" }]
+dependencies = ["dvc>=3.64.0", "typer>=0.20.0"]
+requires-python = "==3.11.*"
+readme = "README.md"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+exclude = ["__init__.py"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812", # missing-trailing-comma
+    "D107",   # undocumented-public-init
+    "TD003",  # missing-todo-link
+    "FIX002", # line-contains-todo
+    "PD901",  # pandas-df-variable-name
+]
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+post_install = "pre-commit install"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.3",
+    "jupyterlab>=4.4.0",
+    "pre-commit>=4.2.0",
+    "vulture>=2.14",
+]

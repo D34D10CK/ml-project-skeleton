@@ -1,11 +1,12 @@
 """Module for data preprocessing."""
 
 from pathlib import Path
+from typing import Annotated
 
 import typer
 
 
-def main(output_file: Path = typer.Option(...)) -> None:
+def main(output_file: Annotated[Path, typer.Option(...)]) -> None:
     """Main function, print hello message."""
     output_file.parent.mkdir(exist_ok=True, parents=True)
     output_file.write_text("Hello from preprocessing!")

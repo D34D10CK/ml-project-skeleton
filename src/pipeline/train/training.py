@@ -1,11 +1,14 @@
 """Module for training the model."""
 
 from pathlib import Path
+from typing import Annotated
 
 import typer
 
 
-def main(preprocessed_file: Path = typer.Option(...), output_file: Path = typer.Option(...)) -> None:
+def main(
+    preprocessed_file: Annotated[Path, typer.Option(...)], output_file: Annotated[Path, typer.Option(...)]
+) -> None:
     """Main function, print hello message."""
     print("Reading message from preprocessing:")
     print(preprocessed_file.read_text())
